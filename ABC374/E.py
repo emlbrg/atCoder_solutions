@@ -72,9 +72,11 @@ def max_production_capacity(N: int, X: int, data: List[Tuple[int, int, int, int]
             ng = mid
     return ok
 
+# Input processing
 N, X = map(int, input().split())
 data = [tuple(map(int, input().split())) for _ in range(N)]
 
+# Output the maximum achievable production capacity
 print(max_production_capacity(N, X, data))
 
 ### TESTING ###

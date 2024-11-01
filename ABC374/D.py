@@ -45,17 +45,21 @@ def calculate_min_time(n: int, S: int, T: int, segments: list) -> float:
     Returns:
         float: Minimum time required to print all line segments.
     """
+    # Create all possible start-end configurations for each segment
     possible_orientations = []
     for (Ax, Ay, Bx, By) in segments:
         possible_orientations.append([((Ax, Ay), (Bx, By)), ((Bx, By), (Ax, Ay))])
 
     min_time = float('inf')
+    # Iterate over all possible combinations of start-end orientations
     for orientation in range(2 ** n):
+        # Select one orientation for each segment
         selected_segments = [possible_orientations[i][(orientation >> i) & 1] for i in range(n)]
+        # Check all orderings of the selected orientations
         for segment_order in itertools.permutations(selected_segments):
             time = 0
-            previous_position = (0, 0)
-
+            previous_position = (0, 0)  # Start at the origin
+            # Calculate time for this specific ordering
             for (start, end) in segment_order:
                 time += calculate_distance(*previous_position, *start) / S  # Move to start point
                 time += calculate_distance(*start, *end) / T               # Print line segment
@@ -64,7 +68,9 @@ def calculate_min_time(n: int, S: int, T: int, segments: list) -> float:
 
     return min_time
 
+# Input parsing
 n, S, T = map(int, input().split())
 segments = [tuple(map(int, input().split())) for _ in range(n)]
 
+# Output the minimum time required
 print(calculate_min_time(n, S, T, segments))
