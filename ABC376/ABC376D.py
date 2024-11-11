@@ -4,7 +4,6 @@ url: https://atcoder.jp/contests/abc376/tasks/abc376_d
 """
 from collections import deque
 
-# Read inputs
 node_count, edge_count = map(int, input().split())
 connections = [[] for _ in range(node_count)]  # type: ignore
 
