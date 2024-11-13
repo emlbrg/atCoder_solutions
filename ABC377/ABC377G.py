@@ -1,5 +1,6 @@
 """
-url: https://atcoder.jp/contests/abc377/tasks/abc377_e
+G - Edit to Match
+url: https://atcoder.jp/contests/abc377/tasks/abc377_g
 """
 import sys
 input = sys.stdin.readline
@@ -7,11 +8,11 @@ input = sys.stdin.readline
 word_count = int(input().strip())
 results = []
 
-# Trie structure initialization
+# Trie structure initialization - comments otherwise I cant remember shit
 next_nodes = [[-1] * 26]  # Each node has links to 26 possible children ("a" to "z")
-parent_node = [-1]        # Tracks the parent node for each node
-node_depth = [0]          # Tracks depth for each node in the trie
-node_count = [0]          # Count for each node's occurrence
+parent_node = [-1]  # Tracks the parent node for each node
+node_depth = [0]  # Tracks depth for each node in the trie
+node_count = [0]  # Count for each node's occurrence
 min_distance = [1 << 63]  # Initialize minimum distance for each node
 
 total_nodes = 1  # Total number of nodes, starting with the root
@@ -61,5 +62,4 @@ for _ in range(word_count):
         min_distance[node] = min(min_distance[node], length - position)
         position += 1
 
-# Output results for each word
 print(*results)
