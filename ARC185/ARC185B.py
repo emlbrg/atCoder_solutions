@@ -1,4 +1,5 @@
 """
+B - +1 and -1
 url: https://atcoder.jp/contests/arc185/tasks/arc185_b
 """
 for _ in range(int(input())):
