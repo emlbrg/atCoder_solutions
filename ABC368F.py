@@ -1,4 +1,5 @@
 """
+F - Dividing Game 
 url: https://atcoder.jp/contests/abc368/tasks/abc368_f
 """
 def prime_factors_count(n):
